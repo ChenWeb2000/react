@@ -9,15 +9,23 @@ let Ssub=()=>{
     return list.map((item,i)=><li key={i}>{item}<Sssub/></li>)
 }
 
-let Sub=()=><ul>
-    <Ssub />
-</ul>
 
-let Div=()=>{
-    return <div>
-        <h1>父组件</h1>
-        <Sub />
-    </div>
+class Sub extends React.Component{
+    render(){
+        return <ul>
+            <Ssub/>
+        </ul>
+    }
+}
+
+
+class Div extends React.Component{
+    render(){
+        return <div>
+            <h1>类组件</h1>
+            <Sub/>
+        </div>
+    }
 }
 
 createRoot(document.querySelector('#root')).render(<Div />)
